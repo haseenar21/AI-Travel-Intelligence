@@ -59,11 +59,9 @@ def generate_trip(prompt):
     print("Content-Type:", response.headers.get("Content-Type"))
 
     answer = ""
-    print("Receiving response...")
     for line in response.iter_lines():
         
         if line:
-            print(line)
 
             line = line.decode("utf-8")
 
