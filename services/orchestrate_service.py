@@ -1,3 +1,5 @@
+from urllib import response
+
 import requests
 import os
 from dotenv import load_dotenv
@@ -10,9 +12,6 @@ AGENT_ID = os.getenv("AGENT_ID")
 
 
 def get_access_token():
-    print("API_KEY loaded:", API_KEY is not None)
-    print("API_KEY length:", len(API_KEY) if API_KEY else 0)
-
     response = requests.post(
         "https://iam.cloud.ibm.com/identity/token",
         headers={
@@ -24,13 +23,8 @@ def get_access_token():
         }
     )
 
-    print("Status Code:", response.status_code)
-    print("Response Body:", response.text)
+    response.raise_for_status()
 
-    print("Status Code:", response.status_code)
-    print("Statuscode ", response.status_code)
-    print("Response:", response.text)
-    return response.text
     return response.json()["access_token"]
 
 
@@ -61,12 +55,15 @@ def generate_trip(prompt):
         json=payload,
         stream=True
     )
+    print("Orchestrate Status:", response.status_code)
+    print("Content-Type:", response.headers.get("Content-Type"))
 
     answer = ""
-
+    print("Receiving response...")
     for line in response.iter_lines():
-
+        
         if line:
+            print(line)
 
             line = line.decode("utf-8")
 
