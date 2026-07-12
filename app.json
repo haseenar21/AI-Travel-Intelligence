@@ -1,0 +1,23 @@
+{
+  "name": "Travel Intelligence AI",
+  "description": "AI agent using IBM watsonx Orchestrate to plan your trips",
+  "version": "1.0.0",
+  "repository": "https://github.com/haseenar21/AI-Travel-Intelligence",
+  "website": "",
+  "logo": "",
+  "keywords": [
+    "IBM SkillsBuild",
+    "AICTE Internship",
+    "GrantMatch AI",
+    "IBM watsonx",
+    "IBM watsonx Orchestrate",
+    "Python",
+    "Streamlit",
+    "AI",
+    "Government Grants",
+    "Funding"
+  ],
+  "author": "Haseena",
+  "success_url": "/",
+  "env": {}
+}
