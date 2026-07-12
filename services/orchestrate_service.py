@@ -27,7 +27,9 @@ def get_access_token():
     print("Status Code:", response.status_code)
     print("Response Body:", response.text)
 
-    response.raise_for_status()
+    print("Status Code:", response.status_code)
+    print("Response:", response.text)
+    return response.text
     return response.json()["access_token"]
 
 
