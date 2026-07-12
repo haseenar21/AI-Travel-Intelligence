@@ -10,6 +10,9 @@ AGENT_ID = os.getenv("AGENT_ID")
 
 
 def get_access_token():
+    print("API_KEY loaded:", API_KEY is not None)
+    print("API_KEY length:", len(API_KEY) if API_KEY else 0)
+
     response = requests.post(
         "https://iam.cloud.ibm.com/identity/token",
         headers={
@@ -20,6 +23,9 @@ def get_access_token():
             "apikey": API_KEY
         }
     )
+
+    print("Status Code:", response.status_code)
+    print("Response Body:", response.text)
 
     response.raise_for_status()
     return response.json()["access_token"]
